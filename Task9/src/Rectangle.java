@@ -1,10 +1,13 @@
+import java.util.Objects;
+
 public class Rectangle extends Shape{
     private int a;
     private int b;
 
     public Rectangle(){}
 
-    public Rectangle(int a, int b) {
+    public Rectangle(String color, int a, int b) {
+        super(color);
         this.a = a;
         this.b = b;
     }
@@ -25,4 +28,14 @@ public class Rectangle extends Shape{
             System.out.println();
         }
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Rectangle)) return false;
+        if (!super.equals(o)) return false;
+        Rectangle rectangle = (Rectangle) o;
+        return a == rectangle.a && b == rectangle.b;
+    }
+
 }
